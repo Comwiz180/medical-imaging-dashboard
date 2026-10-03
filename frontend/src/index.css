@@ -1,0 +1,441 @@
+/* ---------- Global layout ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f6f8;
+  color: #222;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+header {
+  margin-bottom: 32px;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+header p {
+  margin-top: 0;
+  color: #666;
+}
+
+section {
+  padding: 24px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
+
+
+/* ---------- Toolbar and filters ---------- */
+
+.scan-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 28px;
+}
+
+.scan-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.scan-summary h2 {
+  margin: 0 0 8px;
+}
+
+.scan-count {
+  margin: 0 0 16px;
+  color: #555;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.filters select {
+  min-width: 120px;
+  padding: 9px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+}
+
+.scan-search {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: start;
+}
+
+.scan-search input {
+  width: 200px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.scan-search button {
+  padding: 8px 14px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.scan-search button:hover {
+  background: #f2f2f2;
+}
+
+.scan-search .error {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+
+/* ---------- Action buttons ---------- */
+
+.generate-button,
+.duplicate-button,
+.export-button {
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.generate-button {
+  padding: 10px 16px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+}
+
+.generate-button:hover {
+  background: #444;
+}
+
+.duplicate-button {
+  margin-top: 10px;
+  padding: 9px 14px;
+  border: 1px solid #aaa;
+  background: #f7f7f7;
+}
+
+.duplicate-button:hover {
+  background: #f2f2f2;
+}
+
+.export-button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  border: 1px solid #777;
+  background: white;
+}
+
+.export-button:hover {
+  background: #f2f2f2;
+}
+
+.generate-button:disabled,
+.duplicate-button:disabled,
+.export-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ---------- Messages ---------- */
+
+.error {
+  color: #b00020;
+}
+
+.success-message {
+  margin: 0 0 20px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f7f7f7;
+}
+
+
+/* ---------- Scan table ---------- */
+
+.scan-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.scan-table th,
+.scan-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.scan-table th {
+  background: #f1f3f5;
+  white-space: nowrap;
+}
+
+.scan-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background: #eef4f8;
+}
+
+
+/* ---------- Scan badges ---------- */
+
+.scan-type-badge,
+.confidence-badge,
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.scan-type-badge {
+  border: 1px solid #d5d9dd;
+  background: #eef1f4;
+}
+
+.confidence-high {
+  background: #e7f5ea;
+  color: #216e39;
+}
+
+.confidence-medium {
+  background: #fff5d6;
+  color: #7a5b00;
+}
+
+.confidence-low {
+  background: #fdecec;
+  color: #9b1c1c;
+}
+
+.status-reviewed {
+  background: #e7f5ea;
+  color: #216e39;
+}
+
+.status-flagged {
+  background: #fdecec;
+  color: #9b1c1c;
+}
+
+.status-unreviewed {
+  background: #eef1f4;
+  color: #555;
+}
+
+
+/* ---------- Scan details ---------- */
+
+.scan-detail {
+  margin: 20px 0 28px;
+  padding: 24px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.detail-header h2 {
+  margin: 0;
+}
+
+.detail-header button {
+  padding: 8px 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.detail-header button:hover {
+  background: #f2f2f2;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  gap: 16px 32px;
+}
+
+.detail-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  column-gap: 16px;
+  align-items: baseline;
+}
+
+.detail-item strong {
+  font-weight: 600;
+}
+
+.detail-item span {
+  color: #444;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.delete-button {
+  padding: 8px 14px;
+  border: 1px solid #b00020;
+  border-radius: 4px;
+  background: white;
+  color: #b00020;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #fdecec;
+}
+
+.disclaimer {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #666;
+}
+
+
+/* ---------- Duplicate results ---------- */
+
+.duplicate-results {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.duplicate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duplicate-header h3 {
+  margin: 0;
+}
+
+.duplicate-header button {
+  padding: 8px 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.duplicate-header button:hover {
+  background: #f2f2f2;
+}
+
+.duplicate-group {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+}
+
+.duplicate-group p {
+  margin: 6px 0;
+}
+
+
+/* ---------- Pagination ---------- */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f2f2f2;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ---------- Responsive layout ---------- */
+
+@media (max-width: 800px) {
+  main {
+    padding: 16px;
+  }
+
+  .scan-toolbar {
+    flex-direction: column;
+  }
+
+  .filters {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
